@@ -1,6 +1,12 @@
 //Require fs (file system) module saved on fs variable
 //url of the module doncs : https://nodejs.org/docs/latest-v12.x/api/fs.html
 const fs = require('fs');
+//This module gives us networking capabilty
+const http = require('http');
+
+
+/////////////////////////////////////
+//  FILES
 
 
 //Blocking, syncronous way
@@ -28,7 +34,7 @@ fs.readFile('./final/txt/start.txt', 'utf-8', (err, data) =>{
     });
 });
 
-console.log('Callback hell 1');
+/* console.log('Callback hell 1');
 
 fs.readFile('./final/txt/start.txt', 'utf-8', (err, data) =>{
     fs.readFile(`./final/txt/${data}.txt`, 'utf-8', (err, data2) =>{
@@ -44,4 +50,16 @@ fs.readFile('./final/txt/start.txt', 'utf-8', (err, data) =>{
     });
 });
 
-console.log('Callback hell 2');
+console.log('Callback hell 2'); */
+
+
+///////////////////////////////
+//      SERVER
+const server = http.createServer((req, res) =>{
+    res.end('Hello form the server!');
+});
+
+
+server.listen(8000, () =>{
+    console.log('Listening on port 8000');
+});
